@@ -1,0 +1,131 @@
+Version 0.0.5, Wed,  8 Jun 2005 19:56:56 +0300
+
+  - new examles in README file: Ex.12-13
+
+  - `dictem-postprocess-collect-hyperlinks' function
+    (when added to `dictem-postprocess-definition-hook',
+     `dictem-postprocess-show-info-hook' or
+     `dictem-postprocess-show-server-hook' hooks) collects hyperlinks
+     in the variable `dictem-hyperlinks-alist'.
+     This variable is used by the function `dictem-hyperlinks-menu'
+     which implements
+     the autocompletion-based menu the same way `Info-menu' does.
+
+    "e" is assigned to call the function `dictem-hyperlinks-menu'.
+    The variable `dictem-hyperlinks-alist' is local to buffer.
+
+  - If `dictem-use-existing-buffer' variable is `t'
+    and dictem-use-content-history is not nil,
+    the entire buffer content and (point)
+    is stored in `dictem-content-history' variable when you click
+    on hyperlink and thus you can easily return to the previous
+    buffer by pressing "l" (`dictem-last' function).
+
+    "l" is assigned to function `dictem-last'.
+    It works just like the button <BACK> in the WEB browsers.
+
+  - added: `dictem-postprocess-definition-remove-header',
+      function for postprocessing DEFINE buffer.
+      It is intended to remove header `XXX definition[s] found'
+      at the beginning of dict's output
+      and can be added to the hook `dictem-postprocess-definition-hook'.
+
+  - fixes:
+    `dictem-kill-all-buffers' has been reimplemented for using
+    `dolist' macros instead of recursion.
+    Recursion-bases implementation causes dictem to fail
+    when lots of buffers exist.
+    Thanks to Juri Linkov for bug reports and lots of suggestions.
+
+  - String that begins hyperlink
+      is stored in the variable `dictem-hyperlink-beginning', defaults to "{"
+    String that ends hyperlink
+      is stored in the variable `dictem-hyperlink-end, defaults to "}"
+    Function that is called when hyperlink "define" is activated
+      is stored in the variable `dictem-hyperlink-define-func',
+      defaults to `dictem-base-define'
+
+    All this stuff may be useful for more complex buffer postprocessing.
+    Hyperlinks are not always enclosed in '{' and '}' braces.
+
+Version 0.0.4, Thu, 24 Feb 2005 19:40:24 +0200
+
+  dictem-default-database (dictem-default-strategy) variables override
+  value of dictem-last-database (dictem-last-strategy) variable,
+  i.e. when dictem-default-xxx is set to non-nil
+  this database (strategy) is always used by default,
+  otherwise the last used database (strategy) is used.
+
+  All examples in README file are know numbered.
+
+  New examples #10 and #11 in README file.
+
+  By default dictem uses the default query as an initial
+  input, this may be very useful.
+  To disable this behaviour set `dictem-empty-initial-input' to `t'.
+  See (describe-variable 'dictem-empty-initial-input)
+  and REAME example #11.
+
+  FIXED: `dictem-last-database' keeps "low-level" database name
+  but the user's virtual one. As a result virtual dictionary
+  could not be the default one (kept in dictem-last-database or
+  dictem-default-database variable ).
+
+Version 0.0.3, Tue, 14 Dec 2004 20:43:34 +0200
+
+  DictEm has been ported to XEmacs
+
+  Virtual dictionaries can access databases from different DICT servers
+
+    (setq dictem-user-databases-alist
+      '(("_translate" . ("dict://mova.org/mueller7"
+                         "dict://dict.org:2628/web1913"))
+        ("_ru-ru" . ("beslov" "dict://mova.org:2628/religion"))
+        ))
+
+    See README file for more information.
+
+  The following commands can be run non-interactively.
+     `dictem-run-show-info', `dictem-run-search' and
+     `dictem-run-define' 
+
+  `dictem-next-link' and `dictem-previous-link' skip hyperlinks on
+    database names.
+
+  Renamed: `dictem-url'       to `dictem-make-url'
+           `link-create-link' to `dictem-create-link'
+
+  DictEm's prompt looks like this: `<string> [<default>]:'
+
+  New default faces
+
+  Lots of README updates.
+
+  A few fixes
+
+Version 0.0.2, Tue, 30 Nov 2004 16:40:00 +0200
+
+  added: new function `dictem-kill-all-buffers' killing all dictem buffers.
+      The key "x" press in dictem buffer use it.
+
+  dictem-postprocess-definition-hyperlinks function:
+     When a substring {foo|bar} is encountered in a definition,
+     `foo' is used for highlighting and `bar' is used for subsearch.
+
+  new functions: `dictem-next-link' and `dictem-previous-link' which
+     set pointer to the next (or previous) hyper link
+  \M-n and \M-p key
+     are assigned to `dictem-next-link' and `dictem-previous-link'
+  When pressing RET (C-m) key on hyper link, subsearch
+     DICT server is sent a DEFINE command
+
+  added: new customizable variable: `dictem-use-existing-buffer'
+      which can be used
+      to use existing dictem buffer instead of creating a new one
+      for subsearches. This variable is local to buffer.
+
+  Documentation update
+
+Version 0.0.1, Thu, 08 Jul 2004 13:58:59 +0300
+
+  first publicly available release
