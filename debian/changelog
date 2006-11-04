@@ -1,0 +1,76 @@
+dictem (0.0.5-3) unstable; urgency=low
+
+  * Added debian-pkg-add-load-path-item check
+    to startup file to conform to emacs-policy (point 9).
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Sat, 24 Sep 2005 00:27:10 +0300
+
+dictem (0.0.5-2) unstable; urgency=low
+
+  * Fixed startup file to use debian-pkg-add-load-path-item. 
+    Closes: #328714
+  * Fixed FSF address in the debian/copyright.
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Thu, 22 Sep 2005 19:26:23 +0300
+
+dictem (0.0.5-1) unstable; urgency=low
+
+  * New upstream release (0.0.5).
+  * Updated Standards-Version to 3.6.2 - no changes to package.
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Tue,  9 Aug 2005 17:36:20 +0300
+
+dictem (0.0.4-1) unstable; urgency=low
+
+  * New upstream release (0.0.4).
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Mon, 25 Apr 2005 17:06:49 +0300
+
+dictem (0.0.3-1) unstable; urgency=low
+
+  * New upstream release (0.0.3). Closes: #285704
+  * Added NEWS and AUTHORS files to documentation.
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Wed, 15 Dec 2004 18:20:41 +0200
+
+dictem (0.0.2-1) unstable; urgency=low
+
+  * New upstream release (0.0.2).
+    Closes: #283897
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Wed,  1 Dec 2004 14:34:29 +0200
+
+dictem (0.0.1-4) unstable; urgency=low
+
+  * Fixed description.
+  * Removed maintainer's scripts.
+  * Upload sponsored by Dmitry Borodaenko <angdraug@debian.org>.
+    Closes: #275149 (ITP)
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Fri,  8 Oct 2004 18:51:08 +0300
+
+dictem (0.0.1-3) unstable; urgency=low
+
+  * Fixed upstream's e-mail and url.
+  * Removed README.Debian.
+  * Minor fixes in debian/rules.
+  * Fixed dependences.
+  * Fixed lintian warnings.
+  * Fixed description.
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Thu, 30 Sep 2004 12:35:27 +0300
+
+dictem (0.0.1-2) unstable; urgency=low
+
+  * Fixed architecture.
+  * Updated description.
+  * Removed executable from dictem.el.
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Tue, 28 Sep 2004 17:00:47 +0300
+
+dictem (0.0.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Zhenja Kaluta <y.kaliuta@gmail.com>  Fri, 24 Sep 2004 12:38:21 +0300
+

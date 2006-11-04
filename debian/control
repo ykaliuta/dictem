@@ -1,0 +1,23 @@
+Source: dictem
+Section: text
+Priority: optional
+Maintainer: Zhenja Kaluta <y.kaliuta@gmail.com>
+Build-Depends: debhelper (>= 4.0.0)
+Standards-Version: 3.6.2
+
+Package: dictem
+Architecture: all
+Depends: dict (>> 1.9.14), emacs21 | emacsen
+Provides: dict-client
+Description: Dict client for emacs
+ DictEm implements all functions of the client part of Dictionary
+ Server Protocol(DICT) protocol (RFC-2229, www.dict.org), i.e looking
+ up words and definitions, obtaining information about available
+ strategies, provided databases, information about DICT server etc.
+ .
+ It uses autocompletion that is used for selecting dictionary and 
+ search strategy.  Moreover, DictEm provides several hooks which 
+ may be used for buffer postprocessing.
+ .
+ Homepage: http://www.mova.org/~cheusov/pub/dictem
+

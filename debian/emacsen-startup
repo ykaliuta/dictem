@@ -1,0 +1,10 @@
+;; -*-emacs-lisp-*-
+;;
+;; Emacs startup file for the Debian dictem package
+;;
+
+(when (fboundp 'debian-pkg-add-load-path-item)
+  (debian-pkg-add-load-path-item
+   (concat "/usr/share/"
+	   (symbol-name debian-emacs-flavor)
+	   "/site-lisp/dictem")))
