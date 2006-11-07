@@ -1,8 +1,9 @@
 dictem (0.8-1) unstable; urgency=low
 
   * New upstream release, see NEWS.
+  * Fixed maintainer's name.
   * Updated Standards-Version to 3.7.2 -- no changes to package.
-  * Updated debhelper dependency to version 5
+  * Updated debhelper dependency to version 5.
 
  -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Tue,  7 Nov 2006 23:07:07 +0200
 

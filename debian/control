@@ -3,6 +3,7 @@ Section: text
 Priority: optional
 Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
 Build-Depends: debhelper (>= 5.0.0)
+Uploaders: Igor Stroh <jenner@debian.org>
 Standards-Version: 3.7.2
 
 Package: dictem
