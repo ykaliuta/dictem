@@ -1,9 +1,9 @@
 Source: dictem
 Section: text
 Priority: optional
-Maintainer: Zhenja Kaluta <y.kaliuta@gmail.com>
-Build-Depends: debhelper (>= 4.0.0)
-Standards-Version: 3.6.2
+Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
+Build-Depends: debhelper (>= 5.0.0)
+Standards-Version: 3.7.2
 
 Package: dictem
 Architecture: all
