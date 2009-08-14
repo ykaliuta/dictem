@@ -192,7 +192,7 @@ a single word in a MATCH search."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;           Variables          ;;;;;
 
-(defconst dictem-version "0.81"
+(defconst dictem-version "0.82"
   "DictEm version information.")
 
 (defvar dictem-strategy-alist
@@ -1368,7 +1368,7 @@ The following key bindings are currently in effect in the buffer:
   (let ((fun (assoc cmd alist)))
     (if fun
 	(symbol-function (cadr fun))
-      (error "Unknown command" cmd)
+      (error "Unknown command \"%s\"" cmd)
       )
     ))
 
@@ -1521,7 +1521,7 @@ and returns a list containing protocol, server, port and path on nil if fails"
 	  (progn
 	    (setq buffer-read-only nil)
 	    (delete-region (point-min) (point-max))
-	    (insert-string (car (car dictem-content-history)))
+	    (insert (car (car dictem-content-history)))
 	    (goto-char (cadr (car dictem-content-history)))
 	    (setq dictem-content-history (cdr dictem-content-history))
 	    )
