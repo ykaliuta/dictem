@@ -1,3 +1,12 @@
+2009-03-20  Aleksey Cheusov <vle@gmx.net>
+
+  * AUTHORS, NEWS, dictem.el:
+  version -> 1.0.1
+  release notes in NEWS
+
+  * dictem.el:
+  fixed: dictem-postprocess-definition-remove-header deletes extra lines
+
 2008-10-11  Aleksey Cheusov <vle@gmx.net>
 
   * NEWS: release notes about 1.0.0
