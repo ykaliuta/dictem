@@ -1,3 +1,33 @@
+2006-07-22  author  <author@chen.chizhovka.net>
+
+  * dictem.el: release 0.81
+
+  * NEWS: news about 0.81 release
+
+  * README, dictem.el:
+  added: dict:///dictionary_name url scheme that means calling 'dict'
+     command line utility withou -h option.
+  Slightly updated Ex.4 in README
+
+2006-07-06  author  <author@chen.chizhovka.net>
+
+  * dictem.el: fixed: dictem-server's type
+
+2006-06-09  author  <author@chen.chizhovka.net>
+
+  * README, dictem.el:
+  If dictem-server is nil "dict" command line utility will use dict server[s]
+     from its own config files ~/.dictrc or PREFIX/etc/dict.conf.
+     See Ex.1 in README file.
+  dictem-database-alist dictem-strategy-alist dictem-server variables
+      are initialized with nil.
+  slightly changed: Ex.1 in README file
+
+2006-05-29  author  <author@chen.chizhovka.net>
+
+  * dictem.el:
+  fixed: dictem-initialize-databases
+
 2006-05-27  author  <author@chen.chizhovka.net>
 
   * make_cvsdist: nothing
