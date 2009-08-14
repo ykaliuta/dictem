@@ -1,3 +1,14 @@
+2009-03-22  Aleksey Cheusov <vle@gmx.net>
+
+  * NEWS: notes about release 1.0.2
+
+  * make_cvsdist: dictem tarball is removed before packing
+
+  * make_cvsdist, dictem.el: version -> 1.0.2
+
+  * dictem.el:
+  dictem-postprocess-definition-remove-header still removes extra line :-/
+
 2009-03-20  Aleksey Cheusov <vle@gmx.net>
 
   * AUTHORS, NEWS, dictem.el:
