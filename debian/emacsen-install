@@ -10,8 +10,6 @@ PACKAGE=dictem
 
 if [ ${FLAVOR} = emacs ]; then exit 0; fi
 
-echo install/${PACKAGE}: Handling install for emacsen flavor ${FLAVOR}
-
 #FLAVORTEST=`echo $FLAVOR | cut -c-6`
 #if [ ${FLAVORTEST} = xemacs ] ; then
 #    SITEFLAG="-no-site-file"
@@ -20,8 +18,11 @@ echo install/${PACKAGE}: Handling install for emacsen flavor ${FLAVOR}
 #fi
 FLAGS="${SITEFLAG} -q -batch -l path.el -f batch-byte-compile"
 
+LOG=`tempfile -pelc_ -s.log -m644`
 ELDIR=/usr/share/emacs/site-lisp/${PACKAGE}
 ELCDIR=/usr/share/${FLAVOR}/site-lisp/${PACKAGE}
+
+echo install/${PACKAGE}: Handling ${FLAVOR}, logged in ${LOG}
 
 # Install-info-altdir does not actually exist. 
 # Maybe somebody will write it.
@@ -33,13 +34,18 @@ fi
 install -m 755 -d ${ELCDIR}
 cd ${ELDIR}
 FILES=`echo *.el`
-cp ${FILES} ${ELCDIR}
 cd ${ELCDIR}
+for i in $FILES; do
+    ln -fs /usr/share/emacs/site-lisp/${PACKAGE}/$i
+done
 
 cat << EOF > path.el
 (setq load-path (cons "." load-path) byte-compile-warnings nil)
 EOF
-${FLAVOR} ${FLAGS} ${FILES}
-rm -f *.el path.el
+echo ${FLAVOR} ${FLAGS} ${FILES} >> ${LOG}
+${FLAVOR} ${FLAGS} ${FILES} >> ${LOG} 2>&1
+egrep -s -e "While compiling|\*\*" ${LOG} || /bin/true
+echo install/${PACKAGE}: Deleting ${LOG}
+rm -f path.el ${LOG}
 
 exit 0
