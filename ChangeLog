@@ -1,4 +1,104 @@
-2006-05-27  author  <author@chen.chizhovka.net>
+2009-03-22  Aleksey Cheusov <vle@gmx.net>
+
+  * NEWS: notes about release 1.0.2
+
+  * make_cvsdist: dictem tarball is removed before packing
+
+  * make_cvsdist, dictem.el: version -> 1.0.2
+
+  * dictem.el:
+  dictem-postprocess-definition-remove-header still removes extra line :-/
+
+2009-03-20  Aleksey Cheusov <vle@gmx.net>
+
+  * AUTHORS, NEWS, dictem.el:
+  version -> 1.0.1
+  release notes in NEWS
+
+  * dictem.el:
+  fixed: dictem-postprocess-definition-remove-header deletes extra lines
+
+2008-10-11  Aleksey Cheusov <vle@gmx.net>
+
+  * NEWS: release notes about 1.0.0
+
+  * make_changelog: minor fix
+
+  * README, dictem.el:
+  Running dictem-initialize everytime your internet becomes up (if case you
+  have no permanent connection to Internet, e.g. dial-up, adsl etc.) is a bit
+  annoying. To avoid this dictem is (re)initialized (if needed) automatically
+  from dictem-select-strategy and dictem-select-database functions.
+  As a result, running dictem-initialize in .emacs becomes unnecessary
+
+  New function (dictem-reinitialize-err) added
+
+  Minor fix in dictem-initialize-databases-alist function.
+  Now it returns erro data in case of failure, not nil.
+  (just like dictem-initialize-strategies-alist)
+
+  version -> 1.0.0
+
+2008-07-17  Aleksey Cheusov <vle@gmx.net>
+
+  * README: tyop fixed
+
+2008-01-28  Aleksey Cheusov <vle@gmx.net>
+
+  * NEWS, dictem.el:
+  version bumped to 0.82
+  version 0.82 release notes
+
+  * make_changelog: my e-mail is inserted instead of vle@gmx.net
+
+  * TODO: Ask users for ideas/bugs/needs/...
+
+  * make_changelog, make_cvsdist: make_changelog is a standalone script now
+
+2007-11-08  Aleksey Cheusov <vle@gmx.net>
+
+  * README: minor fix in documentation
+
+2007-08-01  Aleksey Cheusov <vle@gmx.net>
+
+  * dictem.el:
+  fixed:  warning message produced by 'emacs -f batch-byte-compile dictem.el'
+
+  * dictem.el:
+  'insert-string' function is obsolete in emacs-22.1
+    So it is changed for 'insert'
+
+2006-07-22  Aleksey Cheusov <vle@gmx.net>
+
+  * dictem.el: release 0.81
+
+  * NEWS: news about 0.81 release
+
+  * README, dictem.el:
+  added: dict:///dictionary_name url scheme that means calling 'dict'
+     command line utility withou -h option.
+  Slightly updated Ex.4 in README
+
+2006-07-06  Aleksey Cheusov <vle@gmx.net>
+
+  * dictem.el: fixed: dictem-server's type
+
+2006-06-09  Aleksey Cheusov <vle@gmx.net>
+
+  * README, dictem.el:
+  If dictem-server is nil "dict" command line utility will use dict server[s]
+     from its own config files ~/.dictrc or PREFIX/etc/dict.conf.
+     See Ex.1 in README file.
+  dictem-database-alist dictem-strategy-alist dictem-server variables
+      are initialized with nil.
+  slightly changed: Ex.1 in README file
+
+2006-05-29  Aleksey Cheusov <vle@gmx.net>
+
+  * dictem.el:
+  fixed: dictem-initialize-databases
+
+2006-05-27  Aleksey Cheusov <vle@gmx.net>
 
   * make_cvsdist: nothing
 
@@ -18,7 +118,7 @@
 
   * dictem.el: minor fix
 
-2006-05-26  author  <author@chen.chizhovka.net>
+2006-05-26  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: dictem-exclude-databases-alist variable for setting regexp for
@@ -35,18 +135,18 @@
            "-iri" "-ita" "-kha" "-lat" "-nld" "-por" "-sco" "-scr"
            "-slo" "-swa" "-swe" "-tur" "-rom" "-wel"))
 
-2006-05-24  author  <author@chen.chizhovka.net>
+2006-05-24  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   Errors messages obtained from dict command are printed in case
      initialization failed.
 
-2006-04-06  author  <author@chen.chizhovka.net>
+2006-04-06  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   0.0.6 ---> 0.7
 
-2006-04-03  author  <author@chen.chizhovka.net>
+2006-04-03  Aleksey Cheusov <vle@gmx.net>
 
   * Makefile.am: fix
 
@@ -63,12 +163,12 @@
 
   * dictem.el: minor fix
 
-2006-04-02  author  <author@chen.chizhovka.net>
+2006-04-02  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   fixes for show-info/user-db
 
-2006-03-31  author  <author@chen.chizhovka.net>
+2006-03-31  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: half fixes for userdb-show-db
 
@@ -78,11 +178,11 @@
   * dictem-elisp.el, dictem.el:
   fixes for user databases
 
-2005-12-06  author  <author@chen.chizhovka.net>
+2005-12-06  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: changes in documentation string for dictem-option-mime
 
-2005-11-22  author  <author@chen.chizhovka.net>
+2005-11-22  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: new comments about project
 
@@ -98,14 +198,14 @@
 
   * dictem-lingvo-dsl.el: postprocessing function for lingvo/.dsl content
 
-2005-11-21  author  <author@chen.chizhovka.net>
+2005-11-21  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: customizeable variable dictem-client-prog-args-list
       for a list of extra options passed 'dict' program.
       For example, '("-M")
 
-2005-11-19  author  <author@chen.chizhovka.net>
+2005-11-19  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   fix with switch-to-buffer
@@ -113,7 +213,7 @@
   * dictem-elisp.el:
   example of dictem extension
 
-2005-11-13  author  <author@chen.chizhovka.net>
+2005-11-13  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   initial version of dictem-userdb-SEARCH
@@ -121,29 +221,29 @@
   minor fixes
   some efforts to make new buffer creation more clever
 
-2005-09-01  author  <author@chen.chizhovka.net>
+2005-09-01  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added code for supporting used databases
 
-2005-08-27  author  <author@chen.chizhovka.net>
+2005-08-27  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   a few local functions removed
 
-2005-08-14  author  <author@chen.chizhovka.net>
+2005-08-14  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: dictem-run-show-strategies
   documentation for dictem-mode function (description for dictem mode)
      has been significantly improved
 
-2005-08-13  author  <author@chen.chizhovka.net>
+2005-08-13  Aleksey Cheusov <vle@gmx.net>
 
   * README, dictem.el:
   cmd string is used instead of function
 
-2005-08-12  author  <author@chen.chizhovka.net>
+2005-08-12  Aleksey Cheusov <vle@gmx.net>
 
   * configure.in, dictem.el:
   0.0.5 ---> 0.0.6
@@ -168,7 +268,7 @@
 
   changed: dictem-make-url
 
-2005-06-08  author  <author@chen.chizhovka.net>
+2005-06-08  Aleksey Cheusov <vle@gmx.net>
 
   * NEWS, README, configure.in, dictem.el:
   NEWS file updated
@@ -179,17 +279,17 @@
   * NEWS:
   added: comments for version 0.0.5
 
-2005-05-28  author  <author@chen.chizhovka.net>
+2005-05-28  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   notes about documentation
 
-2005-04-09  author  <author@chen.chizhovka.net>
+2005-04-09  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   removed: local functions
 
-2005-03-21  author  <author@chen.chizhovka.net>
+2005-03-21  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   String that begins hyperlink
@@ -200,7 +300,7 @@
       is stored in the variable `dictem-hyperlink-define-func',
       defaults to `dictem-base-define'
 
-2005-03-20  author  <author@chen.chizhovka.net>
+2005-03-20  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   `dictem-remove-value-from-alist' has been reimplemented
@@ -209,7 +309,7 @@
   fixes in `dictem-postprocess-collect-hyperlinks'
   The variable `dictem-hyperlinks-alist' is local to buffer
 
-2005-03-18  author  <author@chen.chizhovka.net>
+2005-03-18  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   fixes
@@ -242,7 +342,7 @@
 
   "l" is assigned to call `dictem-last'
 
-2005-03-17  author  <author@chen.chizhovka.net>
+2005-03-17  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: indentation
 
@@ -252,7 +352,7 @@
       It is intended to remove header `XXX definition found'
       and can be added to the hook `dictem-postprocess-definition-hook'.
 
-2005-02-24  author  <author@chen.chizhovka.net>
+2005-02-24  Aleksey Cheusov <vle@gmx.net>
 
   * configure.in:
   version: 0.0.3 --> 0.0.4
@@ -260,11 +360,11 @@
   * NEWS:
   update for dictem-0.0.4
 
-2005-02-20  author  <author@chen.chizhovka.net>
+2005-02-20  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: nothing
 
-2005-01-18  author  <author@chen.chizhovka.net>
+2005-01-18  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   FIXED: `dictem-last-database' keeps "low-level" database name
@@ -289,7 +389,7 @@
       this database/strategy is always used by default,
       otherwise the last used database/strategy is used.
 
-2004-12-14  author  <author@chen.chizhovka.net>
+2004-12-14  Aleksey Cheusov <vle@gmx.net>
 
   * NEWS, configure.in:
   NEW file updated
@@ -314,7 +414,7 @@
   * dictem.el:
   DictEm has been ported to XEmacs
 
-2004-12-10  author  <author@chen.chizhovka.net>
+2004-12-10  Aleksey Cheusov <vle@gmx.net>
 
   * README, dictem.el:
   !! Virtual dictionaries can access databases from diferent DICT servers !!
@@ -324,7 +424,7 @@
   `get-line'   renamed to `dictem-get-line'
   `list2alist' renamed to `dictem-list2alist'
 
-2004-12-08  author  <author@chen.chizhovka.net>
+2004-12-08  Aleksey Cheusov <vle@gmx.net>
 
   * README:
   added: new example of assigning the key bendings in dictem buffer
@@ -344,7 +444,7 @@
   (beginning-of-buffer) is replaced with (goto-char (point-min))
      as recomended by elisp manual
 
-2004-12-07  author  <author@chen.chizhovka.net>
+2004-12-07  Aleksey Cheusov <vle@gmx.net>
 
   * README:
   documentation fixes and updates:
@@ -367,7 +467,7 @@
   * dictem.el:
   `dictem-read-query' uses standard Emacs's prompt format
 
-2004-11-30  author  <author@chen.chizhovka.net>
+2004-11-30  Aleksey Cheusov <vle@gmx.net>
 
   * Makefile.am, configure.in: clean-ups
 
@@ -378,14 +478,14 @@
   dictem-version --> "0.0.2"
   NEWS file update
 
-2004-11-25  author  <author@chen.chizhovka.net>
+2004-11-25  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   dictem-postprocess-definition-hyperlinks function:
      When {foo|bar} is encountered in a definition, `foo' is used
      for highlighting and `bar' is used for subsearch.
 
-2004-11-17  author  <author@chen.chizhovka.net>
+2004-11-17  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   new functions: `dictem-next-link' and `dictem-previous-link' which
@@ -395,7 +495,7 @@
   When pressing RET (C-m) key on hyper link,
      DICT server is sent DEFINE command
 
-2004-10-12  author  <author@chen.chizhovka.net>
+2004-10-12  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: new customizable variable: `dictem-use-existing-buffer'
@@ -405,7 +505,7 @@
   added: new function `dictem-kill-all-buffers' killing all dictem buffers.
       The key "x" press in dictem buffer calls it.
 
-2004-09-28  author  <author@chen.chizhovka.net>
+2004-09-28  Aleksey Cheusov <vle@gmx.net>
 
   * README:
   more detailed DictEm description.
@@ -413,16 +513,16 @@
   * dictem.el:
   typos fixed
 
-2004-07-02  author  <author@chen.chizhovka.net>
+2004-07-02  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   new default faces
 
-2004-06-17  author  <author@chen.chizhovka.net>
+2004-06-17  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: fixed: version number
 
-2004-06-07  author  <author@chen.chizhovka.net>
+2004-06-07  Aleksey Cheusov <vle@gmx.net>
 
   * README: corrections
 
@@ -446,7 +546,7 @@
   copyright message
   a few comments
 
-2004-06-05  author  <author@chen.chizhovka.net>
+2004-06-05  Aleksey Cheusov <vle@gmx.net>
 
   * README, dictem.el:
   FIXES
@@ -461,7 +561,7 @@
   added: save-dictem macro which makes access to "foreign" DICT servers easier.
   Documentation update
 
-2004-06-04  author  <author@chen.chizhovka.net>
+2004-06-04  Aleksey Cheusov <vle@gmx.net>
 
   * Makefile.am, README, dictem-ll.el, dictem-opt.el, dictem-prog.el, dictem-vars.el, dictem.el:
   *** empty log message ***
@@ -476,7 +576,7 @@
   dictem-match-base     --> dictem-base-match
   dictem-postprocess-showserver-hook --> dictem-postprocess-show-server-hook
 
-2004-06-03  author  <author@chen.chizhovka.net>
+2004-06-03  Aleksey Cheusov <vle@gmx.net>
 
   * README, dictem-ll.el, dictem-opt.el, dictem-vars.el, dictem.el:
   new function dictem-run-show-databases and appropriate menu item
@@ -490,7 +590,7 @@
   dictem-postprocess-dbinfo-hook --> dictem-postprocess-show-info-hook
   new function dictem-initialize ()
 
-2004-06-01  author  <author@chen.chizhovka.net>
+2004-06-01  Aleksey Cheusov <vle@gmx.net>
 
   * README:
   more examples and fixes
@@ -498,14 +598,14 @@
   * README:
   updated. A few examples have been added.
 
-2004-05-25  author  <author@chen.chizhovka.net>
+2004-05-25  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-opt.el, dictem.el:
   First, user is asked for query
   SPC scrolls dictem buffer up
   \177 scrolls dictem buffer down
 
-2004-05-24  author  <author@chen.chizhovka.net>
+2004-05-24  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-vars.el, dictem.el:
   more informative error message is written to *dictem buffer*
@@ -518,18 +618,18 @@
       This is necessary to keep "*dictem buffer*" clean.
   dictem-error-message function is used to show error message
 
-2004-05-21  author  <author@chen.chizhovka.net>
+2004-05-21  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-opt.el, dictem.el:
   fixes in dictem-postprocess-each-definition
   Before running hooks, (goto-char (point-min)) is called
 
-2004-05-20  author  <author@chen.chizhovka.net>
+2004-05-20  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   dictem-close --> dictem-kill
 
-2004-05-19  author  <author@chen.chizhovka.net>
+2004-05-19  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-opt.el, dictem-vars.el, dictem.el:
   (require 'dictem) is only needed for initializing dictem
@@ -540,13 +640,13 @@
       Users may prefer to use a few databases from a big
       list of available ones.
 
-2004-05-18  author  <author@chen.chizhovka.net>
+2004-05-18  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-ll.el, dictem-vars.el, dictem.el:
   now user can create your own "virtual" dictionaries by combining
       those provided by DICT server.
 
-2004-05-17  author  <author@chen.chizhovka.net>
+2004-05-17  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-prog.el, dictem.el:
   dictem-set-databases  --> dictem-initialize-databases-alist
@@ -556,14 +656,14 @@
       and strategy list
   fixed: dictem-collect-matches and therefore dictem-get-matches
 
-2004-05-16  author  <author@chen.chizhovka.net>
+2004-05-16  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-vars.el, dictem.el:
   added: dictem-version variable
   dict client is run with --client option
        sending information about DictEm to the server.
 
-2004-05-15  author  <author@chen.chizhovka.net>
+2004-05-15  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: dictem-next-section and dictem-previous-section functions
@@ -583,13 +683,13 @@
       to information about database
       and for highlighting "From ....[dbname]" text
 
-2004-05-14  author  <author@chen.chizhovka.net>
+2004-05-14  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-opt.el:
   'dictem-narrow-definitions' function
       has been renamed to 'dictem-postprocess-each-definition'
 
-2004-05-11  author  <author@chen.chizhovka.net>
+2004-05-11  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-ll.el, dictem-prog.el, dictem.el:
   "q" inside dictem buffer buries the buffer
@@ -597,7 +697,7 @@
   dictem-get-{strategies,databases} return alist in which cdr of cell is
      a description
 
-2004-05-03  author  <author@chen.chizhovka.net>
+2004-05-03  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   'dictem-dbinfo-base', 'dictem-match-base', 'dictem-define-base' and
@@ -622,7 +722,7 @@
 
   Documentation update
 
-2004-05-02  author  <author@chen.chizhovka.net>
+2004-05-02  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-vars.el, dictem.el:
   Some XXX-list internal variables have been renamed to XXX-alist
@@ -646,7 +746,7 @@
      'n': move point to the next definition
      'p': move point to the previous definition
 
-2004-04-30  author  <author@chen.chizhovka.net>
+2004-04-30  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   The following functions:
@@ -655,12 +755,12 @@
     either a single database name (stringp)
     of a list of database names (listp)
 
-2004-04-28  author  <author@chen.chizhovka.net>
+2004-04-28  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-opt.el, dictem-vars.el, dictem.el:
   XXX-color-YYY functions have been renamed to XXX-postprocess-YYY
 
-2004-04-26  author  <author@chen.chizhovka.net>
+2004-04-26  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-ll.el, dictem-opt.el, dictem-prog.el, dictem-vars.el, dictem.el:
   code clean-ups
@@ -679,13 +779,13 @@
   added: new high-level functions dictem-run-match, dictem-run-define,
       dictem-run-search, dictem-run-dbinfo and dictem-run-showserver
 
-2004-04-23  author  <author@chen.chizhovka.net>
+2004-04-23  Aleksey Cheusov <vle@gmx.net>
 
   * dictem-opt.el:
   improvements of 'dictem-color-define':
       New and smarter links
 
-2004-04-22  author  <author@chen.chizhovka.net>
+2004-04-22  Aleksey Cheusov <vle@gmx.net>
 
   * Makefile.am, dictem-ll.el, dictem-prog.el, dictem-vars.el, dictem.el:
   Useful non-GUI get-XXX functions have been moved to dictem-prog.el file
@@ -713,7 +813,7 @@
   'dictem' buffer becomes read-only after running DICT client 'dict' and hooks
   exit status of 'dict' is checked
 
-2004-04-19  author  <author@chen.chizhovka.net>
+2004-04-19  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   dictem-strategy-list has not '.' strategy
@@ -724,12 +824,12 @@
   'dictem-last-strategy' and 'dictem-last-database' are local to buffer, i.e
      each buffer has their own defaults
 
-2004-03-17  author  <author@chen.chizhovka.net>
+2004-03-17  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   indentation
 
-2004-01-25  author  <author@chen.chizhovka.net>
+2004-01-25  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: new functions dictem-showserver-base and dictem-showinfo-base
@@ -737,12 +837,12 @@
       "r" and "i" inside "dictem" buffer call them.
   dictem-search renamed to dictem-run and its arguments are reordered
 
-2004-01-07  author  <author@chen.chizhovka.net>
+2004-01-07  Aleksey Cheusov <vle@gmx.net>
 
   * configure.in, dictem.el:
   edict project was renamed to dictem
 
-2003-11-13  author  <author@chen.chizhovka.net>
+2003-11-13  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   'h' key in a edict buffer shows help information
@@ -750,11 +850,11 @@
   mouse-3 --> mouse-2
   mouse-2 on link searches the word/phrase in all dictionaries by default
 
-2003-10-29  author  <author@chen.chizhovka.net>
+2003-10-29  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el: edict customization group
 
-2003-10-28  author  <author@chen.chizhovka.net>
+2003-10-28  Aleksey Cheusov <vle@gmx.net>
 
   * Makefile.am, dictem.1, dictem.in:
   edict and edict.1 are not installed
@@ -763,7 +863,7 @@
   * dictem.el:
   edict.el default to dict.org dictionaries and dictd-1.8.0 strategies
 
-2003-10-22  author  <author@chen.chizhovka.net>
+2003-10-22  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   compilation without warnings
@@ -771,7 +871,7 @@
   * AUTHORS, COPYING, INSTALL, Makefile.am, NEWS, README, configure.in, dictem.1, dictem.in, elisp-comp, install-sh, missing, mkinstalldirs:
   added: many files
 
-2003-10-20  author  <author@chen.chizhovka.net>
+2003-10-20  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   added: workable and highlighted references in a MATCH search.
@@ -779,7 +879,7 @@
   * dictem.el:
   fixed: mistype
 
-2003-10-13  author  <author@chen.chizhovka.net>
+2003-10-13  Aleksey Cheusov <vle@gmx.net>
 
   * dictem.el:
   many enhancements like colorizing output and hyperlinks

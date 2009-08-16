@@ -4,7 +4,7 @@
 ; dictionary.el written by Torsten Hilbrich <Torsten.Hilbrich@gmx.net>
 ; but now probably doesn't contain original code.
 ; Most of the code has been written
-; from scratch by Aleksey Cheusov <vle@gmx.net>, 2004-2005.
+; from scratch by Aleksey Cheusov <vle@gmx.net>, 2004-2008.
 ;
 ; DictEm is free software; you can redistribute it and/or modify it
 ; under the terms of the GNU General Public License as published by
@@ -21,13 +21,15 @@
 ; Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 ; 02111-1307, USA
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
-; Note! Documentation is in README file.
+; NOTE! Documentation is in README file.
 ;
 ; Latest information about dictem project and sources
 ; are available at
 ;
 ; http://freshmeat.net/projects/dictem
+; http://sourceforge.net/projects/dictem
 ; http://mova.org/~cheusov/pub/dictem
 ;
 
@@ -48,10 +50,10 @@
   :group 'dictem
   :group 'faces)
 
-(defcustom dictem-server "dict.org"
+(defcustom dictem-server nil
   "The DICT server"
   :group 'dictem
-  :type 'string)
+  :type '(restricted-sexp :match-alternatives (stringp 'nil)))
 
 (defcustom dictem-port 2628
   "The port of the DICT server"
@@ -190,37 +192,15 @@ a single word in a MATCH search."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;           Variables          ;;;;;
 
-(defconst dictem-version "0.8"
+(defconst dictem-version "1.0.2"
   "DictEm version information.")
 
 (defvar dictem-strategy-alist
-  '(("word"    nil)
-    ("exact"     nil)
-    ("prefix"    nil)
-    ("substring" nil)
-    ("suffix"  nil)
-    ("re"      nil)
-    ("regexp"  nil)
-    ("soundex" nil)
-    ("lev"     nil)
-    )
-
+  nil
   "ALIST of search strategies")
 
 (defvar dictem-database-alist
-  '(("elements" nil )
-    ("web1913" nil )
-    ("wn" nil )
-    ("gazetteer" nil )
-    ("jargon" nil )
-    ("foldoc" nil )
-    ("easton" nil )
-    ("hitchcock" nil )
-    ("devils" nil )
-    ("world02" nil )
-    ("vera" nil )
-    )
-
+  nil
   "ALIST of databases")
 
 (defvar dictem-strategy-history
@@ -494,15 +474,15 @@ This variable is local to buffer")
 ;;;             call-process functions
 
 (defun dictem-local-dict-basic-option (host port option-mime)
-  (append
-   (list "-P" "-" 
-	 "-h" (if host host (dictem-get-server))
-	 "-p" (dictem-get-port port)
-	 "--client" (dictem-client-text)
-	 )
-   (if option-mime '("-M"))
-   dictem-client-prog-args-list
-   ))
+  (let ((server-host (if host host (dictem-get-server))))
+    (append
+     (list "-P" "-" 
+	   "--client" (dictem-client-text))
+     (if server-host
+	 (list "-h" server-host "-p" (dictem-get-port port)))
+     (if option-mime '("-M"))
+     dictem-client-prog-args-list
+     )))
 
 (defun dictem-call-process-SHOW-SERVER (buffer host port)
   (apply 'call-process
@@ -786,6 +766,8 @@ See dictem-exclude-databases variable"
 (defun dictem-get-port (&optional port)
   (let ((p (if port port dictem-port)))
     (cond
+     ((and (stringp p) (string= "" p)) 2628)
+     ((null p) 2628)
      ((stringp p) p)
      ((numberp p) (number-to-string p))
      (t (error "The value of dictem-port variable should be \
@@ -794,9 +776,11 @@ either a string or a number"))
 
 (defun dictem-get-server ()
   (cond
+   ((and (stringp dictem-server) (string= "" dictem-server)) nil)
    ((stringp dictem-server) dictem-server)
+   ((null dictem-server) nil)
    (t (error "The value of dictem-server variable should be \
-either a string or a number"))
+either a string or a nil"))
    ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -817,11 +801,13 @@ and sets dictem-strategy-alist variable."
 and sets dictem-database-alist variable."
   (interactive)
   (setq dictem-database-alist
-	(dictem-delete-alist-predicate
-	 (dictem-get-databases
-	  server
-	  (dictem-get-port port))
-	 'dictem-db-should-be-excluded)))
+	(dictem-get-databases server (dictem-get-port port)))
+  (if (dictem-error-p dictem-database-alist)
+      dictem-database-alist
+    (setq dictem-database-alist
+	  (dictem-delete-alist-predicate
+	   dictem-database-alist
+	   'dictem-db-should-be-excluded))))
 
 (defun dictem-initialize ()
   "Initializes dictem, i.e. obtains
@@ -833,15 +819,22 @@ and makes other tasks."
     (if (dictem-error-p dbs)
 	dbs strats)))
 
+(defun dictem-reinitialize-err ()
+  "Initializes dictem if it is not initialized yet
+and run (error ...) if an initialization fails"
+  (interactive)
+  (if (or (dictem-error-p dictem-database-alist)
+	  (null dictem-database-alist))
+      (if (dictem-error-p (dictem-initialize))
+	  (error (dictem-error-message dictem-database-alist)))))
+
 ;;; Functions related to Minibuffer ;;;;
 
 (defun dictem-select-strategy (&optional default-strat)
   "Switches to minibuffer and asks the user
 to enter a search strategy."
   (interactive)
-  (if (dictem-error-p dictem-strategy-alist)
-      (error (concat "server error: "
-		     (dictem-error-message dictem-strategy-alist))))
+  (dictem-reinitialize-err)
   (dictem-select
    "strategy"
    (dictem-prepand-special-strats
@@ -853,9 +846,7 @@ to enter a search strategy."
   "Switches to minibuffer and asks user
 to enter a database name."
   (interactive)
-  (if (dictem-error-p dictem-database-alist)
-      (error (concat "server error: "
-		     (dictem-error-message dictem-database-alist))))
+  (dictem-reinitialize-err)
   (let* ((dbs (dictem-remove-value-from-alist dictem-database-alist))
 	 (dbs2 (if user-dbs
 		   (if dictem-use-user-databases-only
@@ -1358,7 +1349,7 @@ The following key bindings are currently in effect in the buffer:
   "*dictem buffer*")
 
 (defconst dictem-url-regexp
-  "^\\(dict\\)://\\([^/:]+\\)\\(:\\([0-9]+\\)\\)?/\\(.*\\)$")
+  "^\\(dict\\)://\\([^/:]*\\)\\(:\\([0-9]+\\)\\)?/\\(.*\\)$")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1383,7 +1374,7 @@ The following key bindings are currently in effect in the buffer:
   (let ((fun (assoc cmd alist)))
     (if fun
 	(symbol-function (cadr fun))
-      (error "Unknown command" cmd)
+      (error "Unknown command \"%s\"" cmd)
       )
     ))
 
@@ -1536,7 +1527,7 @@ and returns a list containing protocol, server, port and path on nil if fails"
 	  (progn
 	    (setq buffer-read-only nil)
 	    (delete-region (point-min) (point-max))
-	    (insert-string (car (car dictem-content-history)))
+	    (insert (car (car dictem-content-history)))
 	    (goto-char (cadr (car dictem-content-history)))
 	    (setq dictem-content-history (cdr dictem-content-history))
 	    )
@@ -1836,12 +1827,12 @@ the function 'dictem-postprocess-definition-hyperlinks'")
     (end-of-line)
     (let (eol (point))
       (goto-char (point-min))
-      (if (search-forward-regexp "definitions? found" eol t)
+      (if (search-forward-regexp "[0-9] definitions? found" eol t)
 	  (progn
 	    (goto-char (point-min))
-	    (kill-line 2)
-	    )
-	))))
+	    (let ((kill-whole-line t))
+	      (kill-line 1))
+	    )))))
 
 ;;;;;       On-Click Functions     ;;;;;
 (defun dictem-define-on-press ()

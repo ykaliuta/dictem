@@ -1,3 +1,45 @@
+Version 1.0.2, Sun, 22 Mar 2009 17:20:12 +0200
+
+  Another fix in dictem-postprocess-definition-remove-header.
+
+Version 1.0.1, Fri, 20 Mar 2009 12:43:15 +0200
+
+  - fix in dictem-postprocess-definition-remove-header.
+    It wrongly deleted extra line
+
+Version 1.0.0, Sat, 11 Oct 2008 18:59:15 +0300
+
+   - Running dictem-initialize everytime your network/internet is up
+     (if case you have no permanent connection to Internet,
+     e.g. dial-up, adsl etc.) is a bit annoying. To avoid this dictem
+     is (re)initialized (if needed) automatically from
+     dictem-select-strategy and dictem-select-database functions.  As
+     a result, running dictem-initialize in .emacs becomes unnecessary
+
+   - New function (dictem-reinitialize-err) added
+
+   - Minor fix in dictem-initialize-databases-alist function.  Now it
+     returns error data in case of failure, not nil.
+     (just like dictem-initialize-strategies-alist)
+
+Version 0.82, Mon, 28 Jan 2008 22:59:07 +0200
+
+  - FIX for emacs-22 (insert-string is replaced with insert)
+  - Minor fixes in README
+
+Version 0.81, Sat, 22 Jul 2006 15:45:53 +0300
+
+  - dictem-server variable can be equal to nil, in this case
+    'dict' command line tool will be called without -h option, i.e.
+    default _list of servers_ specified in .dictrc (or dict.conf)
+    will be used.
+
+    dict:///dictionary_name (in dictem-user-databases-alist) also means
+    that default server list will be used, see Ex.4 for the sample of use.
+
+  - dictem-server variable now defaults to nil, old value was "dict.org".
+    dictem-strategy-alist and dictem-database-alist also defaults to nil.
+
 Version 0.8, Mon,  Sun, 28 May 2006 00:23:43 +0300
 
   - removed: ./configure / make / make install

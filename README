@@ -1,4 +1,4 @@
-DictEm is a dict client for GNU Emacs.
+DictEm is a Dictionary protocol client for GNU Emacs.
 
 It uses a console dict client (http://sf.net/projects/dict) and
 implements all functions of the client part of DICT protocol
@@ -107,12 +107,27 @@ The easiest configuration of dictem may look like this
 ; Loading dictem functions
 (require 'dictem)
 
-; Setting the server host and port
-(setq dictem-server "localhost")
+; Setting the dictionary server hostname.
+; This part is optional, if dictem-server is nil (the default value)
+; "dict" command line utility will use its ows config file
+; ~/.dictrc or PREFIX/etc/dict.conf.
+; Keeping dictem-server variable unset is recomended because
+; this allows to try _list of_ servers until connection is made,
+; see dict(1) for details.
+;(setq dictem-server "localhost")
+;(setq dictem-server "dict.org")
+
+
+; Setting the dictionary server port.
+; Setting dictem-port is usually not necessary because
+; most DICT servers use the default port 2628.
 ;(setq dictem-port   "2628")
 
-; Code necessary to obtain database and strategy list
-; from DICT server
+; Code necessary to obtain database and strategy list from DICT
+; server. As of version 0.90, dictem runs this function from
+; dictem-select-database and dictem-select-strategy if an
+; initialization was not completed or failed previously, that is
+; running dictem-initialize is optional
 (dictem-initialize)
 
 ; Assigning hot keys for accessing DICT server
@@ -194,12 +209,24 @@ Ex.4
 
 You can even create virtual dictionaries which consist of
 databases from different DICT server.
+The dict url form dict:///religion means 'dict' command line tool
+will be called without -h option, i.e. a list of dictionary servers
+from .dictrc (or dict.conf) will be used.
 
 (setq dictem-user-databases-alist
    '(("_en-ru" . ("dict://mova.org/mueller7"
                   "dict://dict.org:2628/web1913"))
-     ("_ru-ru" . ("beslov" "dict://mova.org:2628/religion"))
+     ("_ru-ru" . ("beslov" "dict:///religion"))
      ))
+
+another example:
+
+(setq dictem-user-databases-alist
+      `(("en-en" . ("dict://dict.org:2628/english"))
+        ("en-ru" . ("dict:///en-ru"
+                    "dict://dict.org:2628/eng-rus"
+                    ))
+        ))
 
 -------
 Ex.5
@@ -213,8 +240,7 @@ and use only those specified in dictem-user-databases-alist variable.
 -------
 Ex.6
 
-Of course, you can assign you can
-assign your own key bindings in dictem buffer
+Of course, you can assign your own key bindings in dictem buffer
 
 (define-key dictem-mode-map [tab] 'dictem-next-link)
 (define-key dictem-mode-map [(backtab)] 'dictem-previous-link)
@@ -508,12 +534,12 @@ but also for accesing users' databases.
 -------
 Ex. 15
 
-Last years many dictionary server provides too many bilingual dictionaries
-most of them may be not very interesting for you.
-DictEm allows to exclude such dictionary from an autocompletion menu
+Last years many dictionary servers provide too many bilingual dictionaries,
+most of which may be not very interesting for you.
+DictEm allows to exclude such dictionaries from an autocompletion menu
 by setting a list of regular expressions in dictem-exclude-databases
 variable.
-If, for example, you don't speak french and german and often use
+If, for example, you don't speak french and german and use
 dict://dict.org server, your config may look like this
 
 (setq dictem-server "dict.org")
