@@ -5,10 +5,11 @@ Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
 Build-Depends: debhelper (>= 5.0.0)
 Uploaders: Igor Stroh <jenner@debian.org>
 Standards-Version: 3.7.2
+Homepage: http://www.mova.org/~cheusov/pub/dictem
 
 Package: dictem
 Architecture: all
-Depends: dict (>> 1.9.14), emacs21 | emacsen
+Depends: dict (>> 1.9.14), emacs23 | emacsen
 Provides: dict-client
 Description: Dict client for emacs
  DictEm implements all functions of the client part of Dictionary
@@ -20,5 +21,4 @@ Description: Dict client for emacs
  search strategy.  Moreover, DictEm provides several hooks which 
  may be used for buffer postprocessing.
  .
- Homepage: http://www.mova.org/~cheusov/pub/dictem
 
