@@ -1,3 +1,14 @@
+dictem (1.0.2-1) unstable; urgency=low
+
+  * New upstream release, see NEWS. Closes: #541281
+  * Install symlink in the flavour directory. Closes: #541287
+  * Update packaging:
+    - Homepage is a regular field;
+    - depends on current emacs23 first;
+    - copyright points to GPL-2.
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Sun, 16 Aug 2009 14:16:41 +0300
+
 dictem (0.8-1) unstable; urgency=low
 
   * New upstream release, see NEWS.
