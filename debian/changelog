@@ -6,6 +6,7 @@ dictem (1.0.2-1) unstable; urgency=low
     - Homepage is a regular field;
     - depends on current emacs23 first;
     - copyright points to GPL-2.
+    - Standards-Version: 3.8.3
 
  -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Sun, 16 Aug 2009 14:16:41 +0300
 
