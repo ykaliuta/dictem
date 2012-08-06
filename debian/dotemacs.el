@@ -1,5 +1,5 @@
 (require 'dictem)
-(setq dictem-server "pc233")
+(setq dictem-server "server")
 (dictem-initialize)
 (global-set-key "\C-cs" 'dictem-run-search)
 (global-set-key "\C-cm" 'dictem-run-match)
