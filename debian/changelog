@@ -1,3 +1,10 @@
+dictem (1.0.3-1) unstable; urgency=low
+
+  * New version
+  * sdfsf
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Tue, 07 Aug 2012 01:30:05 +0300
+
 dictem (1.0.2-1) unstable; urgency=low
 
   * New upstream release, see NEWS. Closes: #541281
