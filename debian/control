@@ -2,14 +2,15 @@ Source: dictem
 Section: text
 Priority: optional
 Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
-Build-Depends: debhelper (>= 5.0.0)
+Build-Depends: debhelper (>= 7)
 Uploaders: Igor Stroh <jenner@debian.org>
-Standards-Version: 3.8.3
+Standards-Version: 3.9.0
 Homepage: http://www.mova.org/~cheusov/pub/dictem
 
 Package: dictem
 Architecture: all
-Depends: dict (>> 1.9.14), emacs23 | emacsen
+Depends: dict (>> 1.9.14), emacsen-common (>= 2.0.0)
+Conflicts: emacsen-common (< 2.0.0)
 Provides: dict-client
 Description: Dict client for emacs
  DictEm implements all functions of the client part of Dictionary
