@@ -1,3 +1,12 @@
+dictem (1.0.4-1) unstable; urgency=low
+
+  * New upstream release 1.0.4: 
+    - Flag (interactive) was removed from the following functions:
+      dictem-select-strategy, dictem-select-database, dictem-read-query
+      and dictem-run. Closes: #564251
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Mon, 27 Aug 2012 20:19:02 +0300
+
 dictem (1.0.3-1) unstable; urgency=low
 
   * New upstream release, see NEWS. Closes: #681943
