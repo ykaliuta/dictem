@@ -5,7 +5,6 @@ Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.5
 Homepage: http://www.mova.org/~cheusov/pub/dictem
-DM-Upload-Allowed: yes
 
 Package: dictem
 Architecture: all
