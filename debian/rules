@@ -26,8 +26,6 @@ install: build
 		install -m644 $$i \
 			$(CURDIR)/debian/dictem/usr/share/emacs/site-lisp/dictem/ ; \
 	done
-	install -m644 debian/emacsen-compat \
-		$(CURDIR)/debian/dictem/usr/lib/emacsen-common/packages/compat/dictem
 
 binary-indep: build install
 	dh_testdir
