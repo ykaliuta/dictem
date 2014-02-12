@@ -8,6 +8,9 @@ build-stamp:
 	dh_testdir
 	touch build-stamp
 
+build-indep: build
+build-arch: build
+
 clean:
 	dh_testdir
 	dh_testroot
@@ -17,10 +20,12 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep
 	dh_installdirs
-	install -m644 dictem.el \
-		$(CURDIR)/debian/dictem/usr/share/emacs/site-lisp/dictem/
+	for i in *.el; do \
+		install -m644 $$i \
+			$(CURDIR)/debian/dictem/usr/share/emacs/site-lisp/dictem/ ; \
+	done
 	install -m644 debian/emacsen-compat \
 		$(CURDIR)/debian/dictem/usr/lib/emacsen-common/packages/compat/dictem
 
@@ -40,4 +45,4 @@ binary-indep: build install
 
 binary-arch: build install
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install 
+.PHONY: build-indep build-arch build clean binary-indep binary-arch binary install 

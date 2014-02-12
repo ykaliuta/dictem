@@ -8,3 +8,6 @@
    (concat "/usr/share/"
 	   (symbol-name debian-emacs-flavor)
 	   "/site-lisp/dictem")))
+
+(autoload 'dictem "dictem" nil t)
+(autoload 'dictem-run-search "dictem" nil t)

@@ -1,9 +1,34 @@
-dictem (1.0.3-1) unstable; urgency=low
+dictem (1.0.4-2) unstable; urgency=low
 
-  * New version
-  * sdfsf
+  * New debian policy
 
  -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Tue, 07 Aug 2012 01:30:05 +0300
+
+dictem (1.0.4-1) unstable; urgency=low
+
+  * New upstream release 1.0.4: 
+    - Flag (interactive) was removed from the following functions:
+      dictem-select-strategy, dictem-select-database, dictem-read-query
+      and dictem-run. Closes: #564251
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Mon, 27 Aug 2012 20:19:02 +0300
+
+dictem (1.0.3-1) unstable; urgency=low
+
+  * New upstream release, see NEWS. Closes: #681943
+  * Add autoloads to the site-start file. Closes: #541283
+  * Update packaging:
+    - upstream ChangeLog has been removed, adopting;
+    - depends on current emacs24 first;
+    - Standards-Version: 3.9.3;
+    - debhelper version 9;
+    - change dh_clean -k to dh_prep;
+    - added dummy build-indep and build-arch targets;
+    - added debian/source/format. Source version is 1.0;
+    - added ${misc:Depends}
+  
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Tue, 07 Aug 2012 01:52:51 +0300
+>>>>>>> master
 
 dictem (1.0.2-1) unstable; urgency=low
 

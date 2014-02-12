@@ -3,13 +3,13 @@ Section: text
 Priority: optional
 Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
 Build-Depends: debhelper (>= 9)
-Uploaders: Igor Stroh <jenner@debian.org>
-Standards-Version: 3.9.0
+Standards-Version: 3.9.5
 Homepage: http://www.mova.org/~cheusov/pub/dictem
+DM-Upload-Allowed: yes
 
 Package: dictem
 Architecture: all
-Depends: dict (>> 1.9.14), emacsen-common (>= 2.0.0)
+Depends: ${misc:Depends}, dict (>> 1.9.14), emacsen-common (>= 2.0.0)
 Conflicts: emacsen-common (< 2.0.0)
 Provides: dict-client
 Description: Dict client for emacs
