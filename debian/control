@@ -3,14 +3,14 @@ Section: text
 Priority: optional
 Maintainer: Yauheni Kaliuta <y.kaliuta@gmail.com>
 Build-Depends: debhelper (>= 9)
-Uploaders: Igor Stroh <jenner@debian.org>
-Standards-Version: 3.9.3
+Standards-Version: 3.9.5
 Homepage: http://www.mova.org/~cheusov/pub/dictem
-DM-Upload-Allowed: yes
+Vcs-Git: https://github.com/cheusov/dictem.git
 
 Package: dictem
 Architecture: all
-Depends: ${misc:Depends}, dict (>> 1.9.14), emacs24 | emacsen
+Depends: ${misc:Depends}, dict (>> 1.9.14), emacsen-common (>= 2.0.0)
+Conflicts: emacsen-common (< 2.0.0)
 Provides: dict-client
 Description: Dict client for emacs
  DictEm implements all functions of the client part of Dictionary

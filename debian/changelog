@@ -1,3 +1,14 @@
+dictem (1.0.4-2) unstable; urgency=low
+
+  * Remove no more needed 'DM-Upload-Alllowed' and 'Uploaders'
+  * Update Standards-Version
+  * Adopt to the new policy:
+    - Conflicts of old emacsen-common, Depends of the new.
+    - add emacsen-compat
+    debhelper takes care of the rest of the job.
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Thu, 06 Mar 2014 14:39:28 +0200
+
 dictem (1.0.4-1) unstable; urgency=low
 
   * New upstream release 1.0.4: 
