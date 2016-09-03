@@ -1,3 +1,10 @@
+dictem (1.0.4-3) unstable; urgency=low
+
+  * Update Standartds-Version to 3.9.8 just to make an upload
+    to show "we are alive".
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Sat, 03 Sep 2016 09:22:13 +0300
+
 dictem (1.0.4-2) unstable; urgency=low
 
   * Remove no more needed 'DM-Upload-Alllowed' and 'Uploaders'
