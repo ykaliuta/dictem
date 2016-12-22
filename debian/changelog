@@ -1,3 +1,9 @@
+dictem (1.0.4-4) unstable; urgency=low
+
+  * Update Vcs-Git to own repository. Closes: #847714.
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Thu, 22 Dec 2016 15:49:57 +0200
+
 dictem (1.0.4-3) unstable; urgency=low
 
   * Update Standartds-Version to 3.9.8 just to make an upload
