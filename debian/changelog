@@ -1,3 +1,12 @@
+dictem (1.0.4-5) unstable; urgency=medium
+
+  * debian/rules: switch to dh sequence
+  * debian/control: update emacsen-common dependency
+  * debian/control: update Standartds-Version, 4.1.3
+  * debian/source/format: switch to 3.0 (quilt)
+
+ -- Yauheni Kaliuta <y.kaliuta@gmail.com>  Thu, 01 Feb 2018 10:43:19 +0200
+
 dictem (1.0.4-4) unstable; urgency=low
 
   * Update Vcs-Git to own repository. Closes: #847714.
