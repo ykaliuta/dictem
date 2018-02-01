@@ -9,8 +9,8 @@ Vcs-Git: https://github.com/ykaliuta/dictem.git -b packaging
 
 Package: dictem
 Architecture: all
-Depends: ${misc:Depends}, dict (>> 1.9.14), emacsen-common (>= 2.0.0)
-Conflicts: emacsen-common (< 2.0.0)
+Depends: ${misc:Depends}, dict (>> 1.9.14), emacsen-common (>= 2.0.8)
+Conflicts: emacsen-common (<< 2.0.0)
 Provides: dict-client
 Description: Dict client for emacs
  DictEm implements all functions of the client part of Dictionary
