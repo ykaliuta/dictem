@@ -4,6 +4,7 @@ dictem (1.0.4-5) UNRELEASED; urgency=medium
   * Upgrade to newer source format 3.0 (quilt).
   * debian/control: Add Vcs-Browser field
   * Bump debhelper from deprecated 9 to 12.
+  * Set debhelper-compat version in Build-Depends.
 
  -- Debian Janitor <janitor@jelmer.uk>  Tue, 28 Apr 2020 16:26:36 +0000
 
